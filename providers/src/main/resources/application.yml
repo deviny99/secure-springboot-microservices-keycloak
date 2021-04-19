@@ -1,7 +1,14 @@
 server:
-  port: 8081
-microservice:
-  providers:
-    url: "http://localhost:8082"
+  port: 8082
+
 keycloak:
   configurationFile: "classpath:keycloak.json"
+
+opentracing:
+  jaeger:
+    enabled: true
+    service-name: "providers"
+    http-sender:
+      url: "http://localhost:14268/api/traces"
+    probabilistic-sampler:
+      sampling-rate: 1
