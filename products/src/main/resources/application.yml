@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: produtos
+
+server:
+  port: 8081
+microservice:
+  providers:
+    url: "http://localhost:8082"
+keycloak:
+  keyfactory: "RSA"
+  configurationFile: "classpath:keycloak.json"
+
+feign:
+  client:
+    config:
+      default:
+        errorDecoder: com.demo.products.proxies.DrmClientErrorDecoder
+
+management:
+  prometheus:
+    enabled: true
+  endpoint:
+    beans:
+      cache:
+        time-to-live: "10s"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+opentracing:
+  jaeger:
+    enabled: true
+    service-name: "produtos"
+    http-sender:
+      url: "http://localhost:14268/api/traces"
+    probabilistic-sampler:
+      sampling-rate: 1
+  spring:
+    cloud:
+      feign:
+        enabled: false
+

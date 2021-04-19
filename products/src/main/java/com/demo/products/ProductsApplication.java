@@ -1,13 +1,13 @@
 package com.demo.products;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
-@EnableAutoConfiguration
-@EnableFeignClients("com.demo.products.proxies")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@EnableFeignClients
 public class ProductsApplication {
 
 	public static void main(String[] args) {

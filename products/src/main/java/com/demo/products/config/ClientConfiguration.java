@@ -1,5 +1,6 @@
 package com.demo.products.config;
 
+import feign.RequestInterceptor;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -8,10 +9,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import feign.RequestInterceptor;
-
 public class ClientConfiguration {
-	
+
 	@Bean
 	@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public RequestInterceptor requestInterceptor() {
@@ -26,14 +25,19 @@ public class ClientConfiguration {
         KeycloakAuthenticationToken token;
         KeycloakSecurityContext context;
 
+
+
         if (authentication == null) {
-            throw new IllegalStateException("Cannot set authorization header because there is no authenticated principal");
+
+            throw new IllegalStateException("Não é possível definir o cabeçalho de autorização porque não há principal autenticado");
         }
 
         if (!KeycloakAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+
             throw new IllegalStateException(
                     String.format(
-                            "Cannot set authorization header because Authentication is of type %s but %s is required",
+                            "\n" +
+                                    "Não é possível definir o cabeçalho de autorização porque a autenticação é do tipo %s mas %s é necessario",
                             authentication.getClass(), KeycloakAuthenticationToken.class)
             );
         }
@@ -43,4 +47,5 @@ public class ClientConfiguration {
 
         return context;
     }
+
 }

@@ -1,0 +1,7 @@
+server:
+  port: 8081
+microservice:
+  providers:
+    url: "http://localhost:8082"
+keycloak:
+  configurationFile: "classpath:keycloak.json"

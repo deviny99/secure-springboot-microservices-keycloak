@@ -1,0 +1,9 @@
+{
+  "realm": "shopping",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnsQjjUxa/Th+i+R2MIqtN0Q4BCKVtPOCsw71hSGimrDqDwK45/tI4p3hMi5c9EpzeJ6CgneOdHgD+dHwp+zvs7fBdiEumL9cbFR9Fd+ItQixBKvUxo0WSoW1gcardfJgOp1V9sPUu3kPQ8z8p6MpaIxm17eWQfjYIWZ1riTnc+V8FbVwl9bN8+rdBbShKLbuq1PQPdwqvV1ODkOder4C+jJ3KnC2yA+9ow6xJ9pOHqzjJI6d11KAiQWJda+9FAUjQSa7+XJOmuo63ZLLfdPw+ZxlDDaiShkQLmF19rsE2kBQwLRIfpA/KMfmy0MnMaS67sTN7WFTyN1G/IPIduLvuwIDAQAB",
+  "bearer-only": true,
+  "auth-server-url": "http://localhost:8080/auth/",
+  "ssl-required": "external",
+  "resource": "prod",
+  "confidential-port": 0
+}
